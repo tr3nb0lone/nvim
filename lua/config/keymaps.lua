@@ -1,6 +1,6 @@
 -- General remapps:
-vim.keymap.set('n', '<leader>so', ': source <CR>', {desc = "[S]ource the config."})
-
+vim.keymap.set('n', '<leader>so', ':source <CR>', {desc = "[S]ource the config."})
+vim.keymap.set('n', '<leader>o', ':Oil <CR>', {desc = "Launch [O]il.nvim"})
 
 -- Diagnostics:
 vim.keymap.set('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, {desc ="[T]oggle [D]iagnostic messages."})
