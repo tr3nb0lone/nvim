@@ -2,8 +2,6 @@ return {
   -- Main LSP Configuration
   'neovim/nvim-lspconfig',
   dependencies = {
-    -- Automatically install LSPs and related tools to stdpath for Neovim
-    -- Mason must be loaded before its dependents so we need to set it up here.
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
     { 'williamboman/mason.nvim', opts = {} },
     'williamboman/mason-lspconfig.nvim',
@@ -39,10 +37,6 @@ return {
 
 
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-        ---@param client vim.lsp.Client
-        ---@param method vim.lsp.protocol.Method
-        ---@param bufnr? integer some lsp support methods only in specific files
-        ---@return boolean
         local function client_supports_method(client, method, bufnr)
           if vim.fn.has 'nvim-0.11' == 1 then
             return client:supports_method(method, bufnr)
@@ -117,51 +111,6 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-    local servers = {
-      clangd = {
-		cmd = { "clangd" },
-                filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-	    root_markers = {
-		".clangd",
-		".clang-tidy",
-		".clang-format",
-		"compile_commands.json",
-		"compile_flags.txt",
-		"configure.ac", -- AutoTools
-		".git",
-	    },
-	},
-      gopls = {
-		cmd = { "gopls" },
-                filetypes = { "go", "gomod", "gowork", "gotmpl" },
-     },
-      -- pyright = {},
-      -- rust_analyzer = {},
-      -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-      --java-language-server = {},
-      -- ts_ls = {},
-
-      lua_ls = {
-	cmd = { "lua-language-server" },
-        filetypes = { "lua" },
-        -- capabilities = {},
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-		 diagnostics = {
-		-- Get the language server to recognize the `vim` global
-                -- get rid of the ERROR: Undefined global 'vim'
-		globals = {
-		  'vim',
-		  'require'
-		},
-	      },
-          },
-        },
-      },
-    }
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
