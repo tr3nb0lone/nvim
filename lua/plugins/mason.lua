@@ -3,7 +3,17 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-    { 'williamboman/mason.nvim', opts = {} },
+     { 'williamboman/mason.nvim', 
+    opts = {
+      ensure_installed = {
+	    "lua_ls",
+	    "clangd",
+	    "bashls",
+	    "gopls",
+	    "nils",
+      }
+     }
+  },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -24,16 +34,17 @@ return {
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-        map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-	-- not to confuse gD with gd ([D]eclaration and definition)
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+	       -- map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+	       map('gd', ":belowright split | lua vim.lsp.buf.definition()<CR>", '[G]oto [D]efinition')
+	       map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+	       map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+	       map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+	       map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+	       map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+	       map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+	       map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+        	-- not to confuse gD with gd ([D]eclaration and definition)
+	       map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
 
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
@@ -115,7 +126,7 @@ return {
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
-      ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+      ensure_installed = {"bashls"},
       automatic_installation = true,
       handlers = {
         function(server_name)
