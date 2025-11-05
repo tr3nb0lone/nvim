@@ -3,7 +3,6 @@ return {
   'RRethy/base16-nvim',
   'bluz71/vim-moonfly-colors',
   name = 'base16-black-metal',
-  -- name = 'moonfly',
   lazy = false,
   -- this priority enables the plugin to load before anything!
   priority = 1000,
