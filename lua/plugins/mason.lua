@@ -3,17 +3,9 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-     { 'williamboman/mason.nvim', 
-    opts = {
-      ensure_installed = {
-	    "lua_ls",
-	    "clangd",
-	    "bashls",
-	    "gopls",
-	    "nils",
-      }
-     }
-  },
+     { 'williamboman/mason.nvim',
+    opts = { ensure_installed = {} }
+    },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -107,7 +99,7 @@ return {
         format = function(diagnostic)
           local diagnostic_message = {
             [vim.diagnostic.severity.ERROR] = diagnostic.message,
-            [vim.diagnostic.severity.WARN] = diagnostic.message,
+            -- [vim.diagnostic.severity.WARN] = diagnostic.message,
             [vim.diagnostic.severity.INFO] = diagnostic.message,
             [vim.diagnostic.severity.HINT] = diagnostic.message,
           }
@@ -124,9 +116,9 @@ return {
 
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
+	-- The usuals go here!
     require('mason-lspconfig').setup {
-      ensure_installed = {"bashls"},
+      ensure_installed = { "lua_ls", "bashls", "gopls", "clangd", "pyright", },
       automatic_installation = true,
       handlers = {
         function(server_name)

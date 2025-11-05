@@ -8,6 +8,7 @@ return { -- Highlight, edit, and navigate code
     ensure_installed = {
       'bash',
       'go',
+      'python',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
@@ -17,6 +18,4 @@ return { -- Highlight, edit, and navigate code
     },
     indent = { enable = true, disable = { 'ruby' } },
   },
-  --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-  --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 }
