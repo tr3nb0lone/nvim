@@ -19,6 +19,7 @@ return {
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
+
 	-- NOTE: Remember that Lua is a real programming language, and as such it is possible
         -- to define small helper and utility functions so you don't have to repeat yourself.
         local map = function(keys, func, desc, mode)
@@ -118,7 +119,7 @@ return {
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 	-- The usuals go here!
     require('mason-lspconfig').setup {
-      ensure_installed = { "lua_ls", "bashls", "gopls", "clangd", "pyright", },
+      ensure_installed = { "lua_ls", "bashls", "gopls", "pyright", },
       automatic_installation = true,
       handlers = {
         function(server_name)
