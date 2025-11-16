@@ -1,3 +1,5 @@
+-- Sync clipboard
+vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
 
 -- relative number (essential)
 vim.opt.number = true

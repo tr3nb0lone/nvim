@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# utility script by @edr3x
 
 GHAPI="https://api.github.com"
 REPO="neovim/nvim-lspconfig"
