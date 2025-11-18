@@ -7,7 +7,7 @@ require("config.autocmds")
 
 -- Set the colorscheme here, 'cause why not?
 vim.cmd.colorscheme 'base16-black-metal'
-
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "white", bg = "none" })
 
 
 

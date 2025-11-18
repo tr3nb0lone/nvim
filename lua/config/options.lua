@@ -1,5 +1,6 @@
 -- Sync clipboard
 vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "white", bg = "none" })
 
 -- relative number (essential)
 vim.opt.number = true
