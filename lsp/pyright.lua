@@ -1,7 +1,6 @@
 ---@brief
 ---
 --- https://github.com/microsoft/pyright
----
 --- `pyright`, a static type checker and language server for python
 
 local function set_python_path(command)
@@ -49,9 +48,6 @@ return {
         arguments = { vim.uri_from_bufnr(bufnr) },
       }
 
-      -- Using client.request() directly because "pyright.organizeimports" is private
-      -- (not advertised via capabilities), which client:exec_cmd() refuses to call.
-      -- https://github.com/neovim/neovim/blob/c333d64663d3b6e0dd9aa440e433d346af4a3d81/runtime/lua/vim/lsp/client.lua#L1024-L1030
       client.request('workspace/executeCommand', params, nil, bufnr)
     end, {
       desc = 'Organize Imports',
