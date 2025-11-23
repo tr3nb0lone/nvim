@@ -1,26 +1,31 @@
-require("config.lazy")
-require("config.lsp")
-require("config.options")
-require("config.keymaps")
-require("config.autocmds")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-
--- Set the colorscheme here, 'cause why not?
-vim.cmd.colorscheme 'base16-black-metal'
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "white", bg = "none" })
-
-
-
--- INFO: all the helper snippets I defined go here!
-function RunCommand(command)
-    -- LOGIC: Split output into lines -> create quickfix items -> populate quickfix list (temporarily) and display
-    local output = vim.fn.system(command)
-    local lines = {}
-    for line in output:gmatch("[^\r\n]+") do
-        if line ~= "" then
-            table.insert(lines, {filename = "", text = line})
-        end
-    end
-    vim.fn.setqflist({}, ' ', { title = "output: " .. command, items = lines })
-    vim.cmd("copen 12")
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
+vim.opt.rtp:prepend(lazypath)
+
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {
+	-- import your plugins
+ 	{ import = "plugins" },
+	{ import = "utils" },
+  { "folke/todo-comments.nvim", opts = {} },
+},
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { "habamax" } },
+})
