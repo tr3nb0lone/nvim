@@ -33,7 +33,8 @@ local function create_floating_window(opts)
         col = col,
         row = row,
         style = "minimal",
-        border = "rounded",
+        -- border = "rounded",
+	border = {"T", " ", " ", " ", " ", " ", " ", " ",},
     }
 
     local win = vim.api.nvim_open_win(buf, true, win_config)

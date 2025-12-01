@@ -18,6 +18,8 @@ end
 
 vim.lsp.enable(lsp_files)
 
+-- INFO: fixes the problem I face when opening *.nix files
+
 -- Diagnostic Config
 -- NOTE: see :help vim.diagnostic.Opts
 vim.diagnostic.config({
@@ -53,6 +55,7 @@ callback = function(args)
 	-- NOTE:  Disable default formatting
 	if client.name == "tsserver" then client.server_capabilities.documentFormattingProvider = false end
 	if client.name == "lua_ls" then client.server_capabilities.documentFormattingProvider = false end
+	if client.name == "nil_ls" then client.server_capabilities.documentFormattingProvider = false end
 
 	-- NOTE: Remember that Lua is a real programming language, and as such it is possible
 	-- to define small helper and utility functions so you don't have to repeat yourself.

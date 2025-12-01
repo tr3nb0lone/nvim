@@ -4,7 +4,7 @@ local opts = { noremap = true, silent = true }
 -- General remapps:
 map('n', '<leader>so', ':source <CR>', {desc = "[S]ource the config."})
 map('n', '<leader>o', ':Oil --float <CR>', {desc = "Launch [O]il.nvim"})
-map("n", '<leader>r', vim.cmd('resize'), {desc = "Zoom In / Resize"})
+map("n", '<leader>rs', ':resize <CR>', {desc = "Zoom In / Resize"})
 
 -- Diagnostics:
 map('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, {desc ="[T]oggle [D]iagnostic messages."})
@@ -15,9 +15,12 @@ map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 map("n", "<C-n>", "<cmd>bprev<CR>", opts)
 map("n", "<C-p>", "<cmd>bnext<CR>", opts)
 
+map("n", "{", "<cmd>bprev<CR>", opts)
+map("n", "}", "<cmd>bnext<CR>", opts)
+
 -- split resize
-map("n", "<C-Up>", ":resize -2<CR>", opts)
-map("n", "<C-Down>", ":resize +2<CR>", opts)
+map("n", "<C-Up>", ":resize +2<CR>", opts)
+map("n", "<C-Down>", ":resize -2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
