@@ -479,27 +479,34 @@ return {
       },
     }
 
-    -- The katana Ascii art:
+    -- ascii art:
     dashboard.section.header.val = {
-      [[                                                                                  ]],
-      [[                                                                      Hebrews 4:12]],
-      [[ 12   For the word of God is alive and active. Sharper than any double-edged sword,]],
-      [[      it penetrates even to dividing soul and spirit, joints and marrow; ]],
-      [[      it judges the thoughts and attitudes of the heart. ]],
       [[                                                                              ]],
       [[                                                                              ]],
       [[                                                                              ]],
       [[                                                                              ]],
-      [[                                                                              ]],
+	[[                                                           ]],
+	[[          ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓  ]],
+	[[          ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒  ]],
+	[[         ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░  ]],
+	[[         ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██   ]],
+	[[         ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒  ]],
+	[[         ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░  ]],
+	[[         ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░  ]],
+	[[            ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░     ]],
+	[[                  ░    ░  ░    ░ ░        ░   ░         ░     ]],
+	[[                                          ░                   ]],
+	[[                                                              ]],
       [[                                                                              ]],
       [[                                                                              ]],
     }
 
     dashboard.section.buttons.val = {
       dashboard.button('e', '  > New file', ':ene <BAR> startinsert <CR>'),
-      dashboard.button('b', '  > Browse files', ':Oil --float<CR>'),
+      dashboard.button('b', '  > Browse files (w Yazi)', ':Yazi <CR>'),
       dashboard.button('f', '󰈞  > Find file', ':Telescope find_files hidden=true <CR>'),
       dashboard.button('r', '  > Recent', ':Telescope oldfiles<CR>'),
+      dashboard.button('t', '  > Launch a Terminal', ':terminal<CR>'),
       dashboard.button('X', '󰈆  > Exit', ':q<CR>'),
     }
 

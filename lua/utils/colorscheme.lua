@@ -1,7 +1,6 @@
 -- the best nvim colorscheme(s)!
 return {
   'RRethy/base16-nvim',
-  'rose-pine/neovim',
   'bluz71/vim-moonfly-colors',
 
   config = function()

@@ -92,7 +92,7 @@ return {
   float = {
     -- Padding around the floating window
     padding = 15,
-    max_width = 0.7,
+    max_width = 0.9,
     max_height = 0.5,
     border = nil,
     win_options = {

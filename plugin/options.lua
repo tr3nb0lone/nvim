@@ -33,3 +33,8 @@ v.api.nvim_set_hl(0, "CursorLineNr", { fg = "white", bg = "none" })
 
 -- Set the colorscheme here, 'cause why not?
 v.cmd.colorscheme 'base16-black-metal'
+-- v.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
+-- v.api.nvim_set_hl(0, "LineNr", { fg = "white" })
+
+-- workaround for a common problem faced with nvim's terminal:
+v.keymap.set('t', '<Esc>', [[<C-\><C-n>]], {noremap = true})

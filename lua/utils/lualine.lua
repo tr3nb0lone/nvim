@@ -2,7 +2,7 @@
 
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "VonHeikemen/fine-cmdline.nvim",},
     opts = function()
         local lspStatus = {
             function()
@@ -100,11 +100,10 @@ return {
         return {
             options = {
                 icons_enabled = true,
-                -- theme = require("utils.lualine-themes").transparent(),
 		theme = transparent(),
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
-                disabled_filetypes = { "snacks_dashboard", "lazy", "mason" },
+                disabled_filetypes = { "alpha", "lazy", "mason" },
                 always_divide_middle = true,
                 globalstatus = true,
             },

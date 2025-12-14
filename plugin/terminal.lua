@@ -11,8 +11,7 @@ local function create_floating_window(opts)
 
     -- 99% and 30% of the screen:
     local width = opts.width or math.floor(vim.o.columns * 1)
-    local height = opts.height or math.floor(vim.o.lines * 0.3)
-
+    local height = opts.height or math.floor(vim.o.lines * 0.47)
     -- Calculate the position to place it at bottom of the window
     local col = math.floor((vim.o.columns - width) / 2)
     local row = math.floor((vim.o.lines - height) / 1)
@@ -46,8 +45,7 @@ local toggle_terminal = function()
     if not vim.api.nvim_win_is_valid(state.floating.win) then
         state.floating = create_floating_window({ buf = state.floating.buf })
         if vim.bo[state.floating.buf].buftype ~= "terminal" then
-            vim.cmd.terminal()
-            -- vim.cmd("belowright split | terminal")
+            vim.cmd.terminal() vim.cmd.colorscheme('base16-black-metal')
         end
         -- unlist the terminal from buffer list
         vim.api.nvim_set_option_value("buflisted", false, { buf = state.floating.buf })

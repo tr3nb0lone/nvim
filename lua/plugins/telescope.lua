@@ -18,7 +18,8 @@ return {
   config = function()
     require('telescope').setup {
       --  All the info you're looking for is in `:help telescope.setup()`
-	 defaults = { theme = "get_ivy", },
+	 -- defaults = { theme = "get_ivy", },
+	 defaults = { theme = "get_dropdown", },
       extensions = {},
   colorscheme = { enable_preview = true },
   }

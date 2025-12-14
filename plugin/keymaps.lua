@@ -3,8 +3,8 @@ local opts = { noremap = true, silent = true }
 
 -- General remapps:
 map('n', '<leader>so', ':source <CR>', {desc = "[S]ource the config."})
-map('n', '<leader>o', ':Oil --float <CR>', {desc = "Launch [O]il.nvim"})
-map("n", '<leader>rs', ':resize <CR>', {desc = "Zoom In / Resize"})
+map('n', '<leader>o', ':Oil <CR>', {desc = "Launch [O]il.nvim"})
+map("n", '<leader>r', ':resize <CR>', {desc = "Zoom In / Resize"})
 
 -- Diagnostics:
 map('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, {desc ="[T]oggle [D]iagnostic messages."})
@@ -30,4 +30,6 @@ map('n', '<leader>mn', function()
     local command = vim.fn.input("Run a command:  ")
     if command ~= "" then RunCommand(command) end
 end)
-map("n", "-", function () vim.cmd('botright split') vim.cmd('resize 15') vim.cmd('Oil') end, {desc = "Lauch Oil - Emacs-style"})
+-- map("n", "-", function () vim.cmd('botright split') vim.cmd('Oil') end, {desc = "Lauch Oil - Emacs-style"})
+map("n", "-", function() vim.cmd('Oil') end, {desc = "Lauch Oil"})
+map("n", "<leader>a", function() vim.cmd('Alpha') end, {desc = "Launch [A]lpha dashboard"})
