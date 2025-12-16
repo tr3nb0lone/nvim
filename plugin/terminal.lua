@@ -33,7 +33,7 @@ local function create_floating_window(opts)
         row = row,
         style = "minimal",
         -- border = "rounded",
-	border = {"T", " ", " ", " ", " ", " ", " ", " ",},
+	border = {" ", " ", " ", " ", " ", " ", " ", " ",},
     }
 
     local win = vim.api.nvim_open_win(buf, true, win_config)
@@ -45,7 +45,7 @@ local toggle_terminal = function()
     if not vim.api.nvim_win_is_valid(state.floating.win) then
         state.floating = create_floating_window({ buf = state.floating.buf })
         if vim.bo[state.floating.buf].buftype ~= "terminal" then
-            vim.cmd.terminal() vim.cmd.colorscheme('base16-black-metal')
+            vim.cmd.terminal() -- vim.cmd.colorscheme('base16-black-metal')
         end
         -- unlist the terminal from buffer list
         vim.api.nvim_set_option_value("buflisted", false, { buf = state.floating.buf })
