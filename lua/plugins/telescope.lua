@@ -26,7 +26,8 @@ return {
    -- See `:help telescope.builtin`
     local set = vim.keymap.set
     local builtin = require 'telescope.builtin'
-    -- Essentials
+    -- Essentials, replaced telescope's find_files with FFF's
+    -- set('n', '<leader><leader>', builtin.find_files, { desc = '[F]ind [F]iles' })
     set('n', '<leader>cs', builtin.colorscheme, { desc = '[F]ind [C]olor[s]cheme' })
     set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
     set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
@@ -35,7 +36,6 @@ return {
     set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
     set('n', '<leader>fn', function() builtin.find_files { cwd = vim.fn.stdpath 'config' } end, { desc = '[F]ind [N]eovim files' })
     set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
-    set('n', '<leader><leader>', builtin.find_files, { desc = '[F]ind [F]iles' })
     set('n', '<leader>g', builtin.live_grep, { desc = '[F]ind by [G]rep' })
     set('n', '<leader>.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
     set('n', '<leader>b', builtin.buffers, { desc = '[ ] Find existing [B]uffers' })

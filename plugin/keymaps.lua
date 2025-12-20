@@ -30,6 +30,5 @@ map('n', '<leader>mn', function()
     local command = vim.fn.input("Run a command:  ")
     if command ~= "" then RunCommand(command) end
 end)
--- map("n", "-", function () vim.cmd('botright split') vim.cmd('Oil') end, {desc = "Lauch Oil - Emacs-style"})
 map("n", "-", function() vim.cmd('Oil') end, {desc = "Lauch Oil"})
 map("n", "<leader>a", function() vim.cmd('Alpha') end, {desc = "Launch [A]lpha dashboard"})
