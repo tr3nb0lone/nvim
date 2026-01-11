@@ -1,9 +1,12 @@
 -- the best nvim colorscheme(s)!
 return {
-  'RRethy/base16-nvim',
-  'bluz71/vim-moonfly-colors',
+	"metalelf0/black-metal-theme-neovim",
 
-  config = function()
-	vim.cmd("colorscheme base16-black-metal")
-  end,
+	lazy = false,
+	priority = 1000,
+	config = function()
+		-- typically I'd rotate around gorgoroth, dark-funeral and this.
+		vim.cmd("colorscheme emperor")
+		vim.o.background = "dark"
+	end,
 }
