@@ -7,13 +7,18 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'nil' },
-  settings = {
-    ['nil.nix.flake'] = {
-      autoArchive = true,
-      autoEvalInputs = true,
-    },
-  },
-  filetypes = { 'nix' },
-  root_markers = { 'flake.nix', '.git' },
+	cmd = { "nil" },
+	settings = {
+		["nil.nix.flake"] = {
+			autoArchive = true,
+			autoEvalInputs = true,
+		},
+	},
+	["nil"] = {
+		formatting = {
+			command = { "nixfmt" },
+		},
+	},
+	filetypes = { "nix" },
+	root_markers = { "flake.nix", ".git" },
 }
