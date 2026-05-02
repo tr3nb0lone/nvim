@@ -54,14 +54,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			return
 		end
 
-		-- NOTE:  Disable default formatting
-		-- if client.name == "tsserver" then
-		-- 	client.server_capabilities.documentFormattingProvider = false
-		-- end
-		-- if client.name == "lua_ls" then
-		-- 	client.server_capabilities.documentFormattingProvider = false
-		-- end
-
 		-- NOTE: Remember that Lua is a real programming language, and as such it is possible
 		-- to define small helper and utility functions so you don't have to repeat yourself.
 		local map = function(keys, func, desc, mode)
@@ -76,7 +68,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 		map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-		map("<leader>R", vim.lsp.buf.rename, "[R]e[n]ame")
+		map("<leader>RR", vim.lsp.buf.rename, "[R]e[n]ame") -- Rolce Royce
 		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
