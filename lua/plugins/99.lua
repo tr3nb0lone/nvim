@@ -2,6 +2,14 @@ return {
 	"ThePrimeagen/99",
 	keys = {
 		{
+			"<leader>9i",
+			function()
+				require("99").info()
+			end,
+			mode = "n",
+			desc = "99: Info",
+		},
+		{
 			"<leader>9f",
 			function()
 				require("99").fill_in_function()
@@ -28,9 +36,17 @@ return {
 		{
 			"<leader>9s",
 			function()
+				require("99").search()
+			end,
+			mode = "n",
+			desc = "99: Visual Search",
+		},
+		{
+			"<leader>9x",
+			function()
 				require("99").stop_all_requests()
 			end,
-			mode = "v",
+			mode = "n",
 			desc = "99: Stop all requests",
 		},
 		{
@@ -42,12 +58,20 @@ return {
 			desc = "99: Generate a Tutorial",
 		},
 		{
-			"<leader>99",
+			"<leader>9vv",
 			function()
-				require("99").visual_prompt({})
+				require("99").visual()
 			end,
 			mode = "v",
-			desc = "99: Visual prompt",
+			desc = "99: Visual.",
+		},
+		{
+			"<leader>9vp",
+			function()
+				require("99").visual_prompt() -- not working ATM
+			end,
+			mode = "v",
+			desc = "99: Visual prompt.",
 		},
 		{
 			"<leader>9fd",
@@ -71,10 +95,10 @@ return {
 				print_on_error = true,
 			},
 			tmp_dir = "/tmp/",
-			completion = {}, -- nothing for now!
-			md_files = {
-				"AGENT.md",
+			completion = {
+				source = "native",
 			},
+			-- md_files = { "AGENT.md", },
 		})
 	end,
 }

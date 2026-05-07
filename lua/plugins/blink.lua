@@ -1,11 +1,11 @@
 return {
 	-- add blink.compat for 99
-	{
-		"saghen/blink.compat",
-		version = "2.*",
-		lazy = true,
-		opts = {},
-	},
+	-- {
+	-- 	"saghen/blink.compat",
+	-- 	version = "2.*",
+	-- 	lazy = true,
+	-- 	opts = {},
+	-- },
 
 	"saghen/blink.cmp",
 	event = "LspAttach",
@@ -13,7 +13,11 @@ return {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
-		cmdline = { enabled = false },
+		cmdline = {
+			enabled = false, -- replaced with mini.cmdline
+			keymap = { preset = "inherit" },
+			completion = { menu = { auto_show = true } },
+		},
 		keymap = {
 			preset = "none",
 			["<CR>"] = { "accept", "fallback" },
