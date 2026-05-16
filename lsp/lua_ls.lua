@@ -4,23 +4,23 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-settings = {
-Lua = {
-     hint = { enable = true },
-     telementry = { enable = false },
-     diagnostics = { globals = { "vim" } },
- },
-},
-  root_markers = {
-    '.luarc.json',
-    '.luarc.jsonc',
-    '.luacheckrc',
-    '.stylua.toml',
-    'stylua.toml',
-    'selene.toml',
-    'selene.yml',
-    '.git',
-  },
+	cmd = { "lua-language-server" },
+	filetypes = { "lua" },
+	settings = {
+		Lua = {
+			hint = { enable = true },
+			telementry = { enable = false },
+			diagnostics = { globals = { "vim", "hl" } },
+		},
+	},
+	root_markers = {
+		".luarc.json",
+		".luarc.jsonc",
+		".luacheckrc",
+		".stylua.toml",
+		"stylua.toml",
+		"selene.toml",
+		"selene.yml",
+		".git",
+	},
 }
