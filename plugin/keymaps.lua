@@ -25,6 +25,14 @@ map("n", "<C-Down>", ":resize -2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- better up and down:
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+
+-- yoink and move around
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Custom:
 map("n", "<leader>mn", function()
 	local command = vim.fn.input("Run a command:  ")
@@ -54,6 +62,9 @@ map("n", "<leader>rr", function()
 	vim.cmd("mksession! " .. vim.fn.fnameescape(session))
 	vim.cmd("restart source " .. vim.fn.fnameescape(session))
 end, { desc = "[R]esta[r]t Neovim" })
+
+-- sessionizer:
+map("n", "<C-f>", "<cmd> silent !tmux neww sessionizer.sh<CR>")
 
 -- Fzf-lua
 map("n", "<leader>.", function()

@@ -22,6 +22,7 @@ set.ignorecase = true
 
 set.smartindent = true
 set.termguicolors = true
+set.incsearch = true
 
 set.backup = false
 set.undofile = true
