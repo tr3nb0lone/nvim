@@ -2,5 +2,5 @@
 return {
 	{ "tjdevries/colorbuddy.nvim" },
 	{ "metalelf0/black-metal-theme-neovim" },
-	{ "tr3nb0lone/oxocarbon.nvim" }, -- this is just a fork! I'm not taking credit.
+	{ "tr3nb0lone/oxocarbon.nvim", branch = "main" }, -- this is just a fork! I'm NOT taking credit.
 }
