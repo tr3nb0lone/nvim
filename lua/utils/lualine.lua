@@ -4,6 +4,19 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons", "VonHeikemen/fine-cmdline.nvim" },
 	opts = function()
+		local copilotStatus = {
+			function()
+				local clients = vim.lsp.get_clients()
+				for _, client in ipairs(clients) do
+					if client.name == "copilot" then
+						return " "
+					end
+				end
+				return ""
+			end,
+			color = { fg = "#6CC644" },
+		}
+
 		local lspStatus = {
 			function()
 				local msg = "No LSP detected"
@@ -112,7 +125,7 @@ return {
 				lualine_b = { "branch" },
 				lualine_c = { buffer },
 				lualine_x = { diff, diagnostic },
-				lualine_y = { lspStatus, "filetype", "location" },
+				lualine_y = { lspStatus, copilotStatus, "filetype", "location" },
 				lualine_z = { "progress" },
 			},
 		}
