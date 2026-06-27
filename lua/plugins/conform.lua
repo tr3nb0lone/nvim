@@ -10,8 +10,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "isort", "black" },
-			dart = { "dart_format" },
-			go = { "goimports", "gofmt" },
+			go = { "goimports", "gofumpt" },
 		},
 		format_on_save = {
 			timeout_ms = 6000,
