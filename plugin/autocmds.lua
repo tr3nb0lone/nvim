@@ -1,7 +1,7 @@
 -- get that nice highlight working
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
-		vim.hl.on_yank({
+		vim.hl.hl_op({
 			higroup = "IncSearch", -- see `:highlight` for more options
 			timeout = 200,
 		})
