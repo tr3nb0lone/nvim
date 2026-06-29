@@ -30,6 +30,6 @@ return {
 		set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
 		set("n", "<leader>fs", builtin.builtin, { desc = "[F]ind [S]elect Telescope" })
 		set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
-		set("n", "<leader>b", builtin.buffers, { desc = "[ ] Find existing [B]uffers" })
+		set("n", "<leader>b", builtin.buffers, { desc = "[F] ind existing [B]uffers" })
 	end,
 }

@@ -39,7 +39,7 @@ set.pumwidth = 10
 v.api.nvim_set_hl(0, "CursorLineNr", { fg = "white", bg = "none" })
 
 -- Set the colorscheme here, 'cause why not?
-vim.cmd.colorscheme("oxocarbon")
+vim.cmd("colorscheme oxocarbon")
 
 -- workaround for a common problem faced with nvim's terminal:
 v.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })

@@ -1,3 +1,7 @@
+local getFullNvimVersion = function()
+	local version = vim.version()
+	return "Neovim " .. string.format("%d.%d.%d", version.major, version.minor, version.patch)
+end
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -13,16 +17,9 @@ return {
 					{ icon = " 󱐌  ", key = "s", desc = "restore-Session", action = ":AutoSession search <CR>" },
 					{ icon = "   ", key = "r", desc = "Recent(s)", action = ":FzfLua oldfiles <CR>" },
 					{ icon = "   ", key = "H", desc = "checkHealth", action = ":checkhealth <CR>" },
-					{
-						icon = " 󰒲  ",
-						key = "L",
-						desc = "Lazy",
-						action = ":Lazy",
-						enabled = package.loaded.lazy ~= nil,
-					},
 					{ icon = " 󰈆  ", key = "q", desc = "Quit", action = ":qa" },
 				},
-				header = [[ Neovim ]], -- the "banner"
+				header = getFullNvimVersion(), -- the "banner"
 			},
 			sections = {
 				{ section = "header" },
@@ -33,10 +30,10 @@ return {
 		input = { enabled = true },
 		picker = { enabled = false },
 		notifier = { enabled = false },
-		quickfile = { enabled = true },
-		scope = { enabled = true },
-		scroll = { enabled = true },
+		quickfile = { enabled = false },
+		scope = { enabled = false },
+		scroll = { enabled = false },
 		statuscolumn = { enabled = true },
-		words = { enabled = true },
+		words = { enabled = false },
 	},
 }
