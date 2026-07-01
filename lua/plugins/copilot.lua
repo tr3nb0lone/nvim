@@ -1,19 +1,11 @@
 return {
 	"zbirenbaum/copilot.lua",
-	event = "InsertEnter",
 	cmd = "Copilot",
 	keys = {
 		{
 			"<leader>cp",
 			function()
-				local client = vim.lsp.get_clients({ name = "copilot" })[1]
-				if client and not vim.b.copilot_disabled then
-					vim.cmd("Copilot disable")
-					vim.notify("Copilot Disabled", vim.log.levels.INFO, { title = "Copilot" })
-				else
-					vim.cmd("Copilot enable")
-					vim.notify("Copilot Enabled", vim.log.levels.INFO, { title = "Copilot" })
-				end
+				vim.cmd("CopilotSessionToggle")
 			end,
 			desc = "Toggle Copilot",
 		},
@@ -30,7 +22,7 @@ return {
 				accept = "<C-y>",
 				accept_word = false,
 				accept_line = false,
-				next = "<M-y>",
+				next = "<M-c>",
 				prev = "<M-p>",
 				dismiss = "<C-]>",
 			},
@@ -57,5 +49,12 @@ return {
 				},
 			},
 		},
+		config = function(_, opts)
+			require("copilot").setup(opts)
+			vim.g.copilot_session_enabled = false -- this makes is  ACTUALLY efficient.
+			vim.schedule(function()
+				vim.cmd("Copilot disable")
+			end)
+		end,
 	},
 }
